@@ -13,12 +13,10 @@
             <div className='p-6 rounded-xl border border-white/10  hovetr:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'>
                 <h3  className='text-xl font-bold mb-4'>Todo List Web Application</h3>
                 <p className='text-gray-400 mb-4'>
-                   Developed a responsive and interactive Todo List web application using HTML, CSS, and JavaScript. Imple-
-                   mented CRUD functionality (Create, Read, Update, Delete) for efficient task management. Utilized browser
-                   Local Storage to persist user tasks across page refreshes and sessions. Designed a clean and user-friendly inter-
-                   face with responsive layouts for desktop and mobile devices. Applied DOM manipulation and event handling
-                   to dynamically update tasks without page reloads. Improved code maintainability through modular JavaScript
-                   functions and organized project structure
+                   A responsive weather application built with HTML, CSS, and JavaScript that provides real-time weather information through Weather API integration. 
+                   It leverages the Fetch API and Async/Await to retrieve and display dynamic weather data, including temperature, humidity, wind speed, and weather
+                    conditions. The application incorporates input validation and error handling to ensure reliable user interactions while delivering a clean, responsive,
+                     and intuitive interface across multiple devices.
                 </p>
                 <div>
                     {["Html","Css","JavaScript"].map((tech,key) => (
@@ -29,21 +27,22 @@
                 </div>
 
                 <div className='flex items-center justify-between'>
-                    <a href="#" className="text-blue-400 hover:text-blue-300  transition-colors my-4">
-                        View Project ➜
+                    <a href="https://github.com/Srinivasvasam45/TO_DO_LIST" className="text-blue-400 flex flex-row hover:text-blue-300  transition-colors my-4">
+                     View Project ➜ <img  className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUv9TdB7j4S16US3-ZeaEc9XXt1uM2j8XF7P6Tm93TQ&s'></img>  
+                     <a href='https://to-do-list-rose-tau.vercel.app/'> 
+                        <img className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIouR9szTw6K96xEMO-GSavuC3v0OGkyKcNHZP_ZbVIw&s=10'></img> </a> 
                     </a>
+                     
                 </div>
             </div>
 
             <div className='p-6 rounded-xl border border-white/10  hovetr:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'>
                 <h3  className='text-xl font-bold mb-4'>Weather Report Web Application</h3>
                 <p className='text-gray-400 mb-4'>
-                   Developed a responsive weather forecasting web application using HTML, CSS, and JavaScript. Integrated
-                   a third-party Weather API to fetch and display real-time weather data based on user input. Implemented
-                   asynchronous data fetching using Fetch API and JavaScript promises. Displayed key weather metrics including
-                   temperature, humidity, wind speed, and weather conditions. Designed an intuitive and mobile-friendly user
-                   interface with responsive layouts. Implemented error handling for invalid city names and API request failures.
-                   Enhanced user experience through dynamic content updates without page reloads.
+                  A responsive note-taking application built with React that enables users to create, edit, and delete notes through a clean and intuitive interface. 
+                  It utilizes React Hooks for efficient state management and follows a reusable component-based architecture to deliver a seamless user experience. 
+                  Designed with a focus on simplicity and performance, the application ensures smooth interaction while maintaining an organized workflow. The 
+                  responsive layout provides a consistent experience across desktop and mobile devices.
                 </p>
                 <div>
                     {["Html","Css","JavaScript"].map((tech,key) => (
@@ -54,11 +53,69 @@
                 </div>
 
                 <div className='flex items-center justify-between'>
-                    <a href="#" className="text-blue-400 hover:text-blue-300  transition-colors my-4">
-                        View Project ➜
+                    <a href="https://github.com/Srinivasvasam45/Weather_Report" className="text-blue-400 flex flex-row hover:text-blue-300  transition-colors my-4">
+                     View Project ➜ <img  className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUv9TdB7j4S16US3-ZeaEc9XXt1uM2j8XF7P6Tm93TQ&s'></img>  
+                     <a href='https://weather-report-xi-blush.vercel.app/'> 
+                        <img className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIouR9szTw6K96xEMO-GSavuC3v0OGkyKcNHZP_ZbVIw&s=10'></img> </a> 
                     </a>
+                     
                 </div>
             </div>
+
+            <div className='p-6 rounded-xl border border-white/10  hovetr:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'>
+                <h3  className='text-xl font-bold mb-4'>Employee Management System</h3>
+                <p className='text-gray-400 mb-4'>
+                  A modern and responsive Employee Management Dashboard built with React that streamlines employee record management through an intuitive and interactive interface.
+                   The application enables seamless CRUD operations, real-time search and filtering, and persistent data storage using Local Storage for an efficient user experience. 
+                   Developed with reusable React components and React Hooks (useState, useEffect), it follows a scalable component-based architecture to ensure clean, maintainable, 
+                   and modular code. The dashboard is designed with a responsive layout, allowing smooth accessibility across desktop and mobile devices. Built with a focus on performance,
+                    usability, and modern frontend development practices, the project demonstrates the implementation of real-world business workflows and effective client-side state management.
+                </p>
+                <div>
+                    {["React"].map((tech,key) => (
+                        <span key={tech} className="inline-block bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm mr-2 mb-2">
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+
+                <div className='flex items-center justify-between'>
+                    <a href="https://github.com/Srinivasvasam45/Employee_Management_System" className="text-blue-400 flex flex-row hover:text-blue-300  transition-colors my-4">
+                     View Project ➜ <img  className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUv9TdB7j4S16US3-ZeaEc9XXt1uM2j8XF7P6Tm93TQ&s'></img>  
+                     <a href='https://employee-management-system-pink-seven.vercel.app/'> 
+                        <img className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIouR9szTw6K96xEMO-GSavuC3v0OGkyKcNHZP_ZbVIw&s=10'></img> </a> 
+                    </a>
+                     
+                </div>
+            </div>
+
+            <div className='p-6 rounded-xl border border-white/10  hovetr:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'>
+                <h3  className='text-xl font-bold mb-4'>Notes Management Application</h3>
+                <p className='text-gray-400 mb-4'>
+                   A modern and responsive note-taking application built with React that enables users to create, edit, and delete notes through a clean and intuitive interface. 
+                   The application leverages React Hooks for efficient state management and follows a reusable component-based architecture to ensure scalability and maintainability.
+                    Designed with a focus on simplicity and usability, it delivers a seamless note management experience across desktop and mobile devices while demonstrating modern 
+                    React development practices.
+                </p>
+                <div>
+                    {["React"].map((tech,key) => (
+                        <span key={tech} className="inline-block bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm mr-2 mb-2">
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+
+                <div className='flex items-center justify-between'>
+                    <a href="https://github.com/Srinivasvasam45/Notes_app" className="text-blue-400 flex flex-row hover:text-blue-300  transition-colors my-4">
+                     View Project ➜ <img  className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUv9TdB7j4S16US3-ZeaEc9XXt1uM2j8XF7P6Tm93TQ&s'></img>  
+                     <a href='https://notes-app-gamma-flax-77.vercel.app/'> 
+                        <img className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIouR9szTw6K96xEMO-GSavuC3v0OGkyKcNHZP_ZbVIw&s=10'></img> </a> 
+                    </a>
+                     
+                </div>
+            </div>
+
+            
            </div>
        </div>
        </ReviewOnScroll>
