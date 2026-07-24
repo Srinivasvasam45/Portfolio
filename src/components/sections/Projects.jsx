@@ -115,6 +115,33 @@
                 </div>
             </div>
 
+            <div className='p-6 rounded-xl border border-white/10  hovetr:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'>
+                <h3  className='text-xl font-bold mb-4'>Spotify Backend API – Role-Based Music Streaming Platform</h3>
+                <p className='text-gray-400 mb-4'>
+                   Designed and developed a scalable backend for a Spotify-inspired music streaming platform using Node.js, Express.js, and MongoDB. 
+                   Implemented role-based authentication and authorization with two user roles: Artists and Listeners. Artists can create and manage songs and albums,
+                   while listeners can browse and access music through secure RESTful APIs. Built modular APIs, optimized database operations, and followed clean architecture 
+                   principles to create a secure and maintainable backend application.
+                   Tech Stack: Node.js • Express.js • MongoDB • Mongoose • JWT • REST API • Postman
+                </p>
+                <div>
+                    {["React"].map((tech,key) => (
+                        <span key={Backend} className="inline-block bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm mr-2 mb-2">
+                            {Backend}
+                        </span>
+                    ))}
+                </div>
+
+                <div className='flex items-center justify-between'>
+                    <a href="https://github.com/Srinivasvasam45/spotify" className="text-blue-400 flex flex-row hover:text-blue-300  transition-colors my-4">
+                     View Project ➜ <img  className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUv9TdB7j4S16US3-ZeaEc9XXt1uM2j8XF7P6Tm93TQ&s'></img>  
+                     <a href='https://spotify-r4e1.onrender.com'> 
+                        <img className='h-8 w-8 bg-black' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIouR9szTw6K96xEMO-GSavuC3v0OGkyKcNHZP_ZbVIw&s=10'></img> </a> 
+                    </a>
+                     
+                </div>
+            </div>
+
             
            </div>
        </div>
