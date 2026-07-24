@@ -125,9 +125,9 @@
                    Tech Stack: Node.js • Express.js • MongoDB • Mongoose • JWT • REST API • Postman
                 </p>
                 <div>
-                    {["React"].map((tech,key) => (
-                        <span key={Backend} className="inline-block bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm mr-2 mb-2">
-                            {Backend}
+                    {["React"].map((backend,key) => (
+                        <span key={backend} className="inline-block bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm mr-2 mb-2">
+                            {backend}
                         </span>
                     ))}
                 </div>
