@@ -1,27 +1,31 @@
 import { useEffect, useRef } from "react";
 
-  export const ReviewOnScroll = ({children}) => {
+export const ReviewOnScroll = ({ children, className = "" }) => {
+  const ref = useRef(null);
 
-    const ref = useRef(null);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                ref.current.classList.add('visible');
-            }
-        },{threshold:0.2, rootMargin: '0px 0px -50px 0px'}
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          node.classList.add('visible');
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
-    return () =>  observer.disconnect();
-    });    
-            
-   
-    return (
-        <div ref={ref} className='reveal'>
-          {children}  
-        </div>
-    )
- }
- export default ReviewOnScroll;
+  return (
+    <div ref={ref} className={`reveal ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+export default ReviewOnScroll;

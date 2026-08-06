@@ -1,49 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-html,body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background:#0a0a0a ;
-    color: #f3f4f6;
+/* ============================================================
+   Design tokens — "dark editor" identity.
+   Everything below is derived from these values on purpose:
+   don't hardcode new colors elsewhere, extend the tokens.
+   ============================================================ */
+:root {
+  --bg: #0a0e14;
+  --bg-elevated: #0f141c;
+  --surface: #12181f;
+  --surface-hover: #161d26;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-faint: #576270;
+
+  --accent: #7ee787;        /* terminal green — primary signature color */
+  --accent-dim: rgba(126, 231, 135, 0.12);
+  --accent-strong: #56d364;
+  --accent-2: #58a6ff;      /* soft blue — links / secondary actions */
+  --accent-2-dim: rgba(88, 166, 255, 0.12);
+  --amber: #e3b341;         /* numbering / highlights, used sparingly */
+
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius: 10px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+::selection {
+  background: var(--accent);
+  color: #04120a;
+}
+
+/* Slim, editor-style scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Ambient dot-grid background, evokes an editor's minimap/gutter texture */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+  opacity: 0.6;
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.text-accent { color: var(--accent); }
+.text-accent-2 { color: var(--accent-2); }
+.text-amber { color: var(--amber); }
+.text-muted { color: var(--text-muted); }
+
+/* Section eyebrow — "// 01 filename.js" comment style label.
+   Numbering is meaningful here: it mirrors this person's own file/section order. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  margin-bottom: 0.85rem;
+}
+.eyebrow .slash { color: var(--accent); }
+
+/* Reusable "window chrome" used for the hero terminal + project files */
+.chrome-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
 @layer utilities {
-   @keyframes blink {
-        0% , 100% {
-            opacity: 1;
-        }
-        50% {
-           opacity: 0;
-        }
-    }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .animate-blink { animation: blink 0.9s step-end infinite; }
 
-    .animate-blink{
-        animation: blink 0.8s step-end infinite ;
-    }
-   
-   
-    @keyframes loading {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-           transform: translateX(250%); 
-        }
-    }
+  @keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+  }
+  .animate-loading-bar { animation: loading 0.9s ease infinite; }
 
-    .animate-loading-bar{
-        animation: loading 0.8s ease infinite ;
-    }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 0.6s ease both; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .animate-float { animation: float 5s ease-in-out infinite; }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
