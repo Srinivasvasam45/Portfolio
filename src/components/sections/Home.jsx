@@ -21,11 +21,11 @@ export const Home = () => {
               </h1>
 
               <p className="font-sans text-base md:text-lg text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed">
-                Full-Stack Developer with a strong foundation
-                in HTML, CSS, JavaScript, and React. Passionate about building modern,
-                responsive, and user-centric web applications while continuously
-                improving through real-world projects. Currently expanding my skills
-                in the MERN stack to build scalable and impactful software solutions.
+                Hi, I'm Srinivas Vasam 👋
+                Full Stack MERN Developer
+                Passionate about building modern, scalable, and user-focused web applications with the MERN Stack. I enjoy 
+                transforming ideas into impactful digital solutions through clean code, continuous learning, and a problem-solving 
+                mindset. I'm excited to contribute to innovative teams and grow as a Software Engineer.
               </p>
 
               <div className="flex flex-wrap justify-center gap-3 font-sans">

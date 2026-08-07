@@ -36,7 +36,7 @@ const projects = [
     title: 'Employee Management System',
     description:
       'A modern and responsive Employee Management Dashboard built with React that streamlines employee record management through an intuitive and interactive interface. The application enables seamless CRUD operations, real-time search and filtering, and persistent data storage using Local Storage for an efficient user experience. Developed with reusable React components and React Hooks (useState, useEffect), it follows a scalable component-based architecture to ensure clean, maintainable, and modular code. The dashboard is designed with a responsive layout, allowing smooth accessibility across desktop and mobile devices. Built with a focus on performance, usability, and modern frontend development practices, the project demonstrates the implementation of real-world business workflows and effective client-side state management.',
-    tags: ['React'],
+    tags: ['React','tailwindcss'],
     github: 'https://github.com/Srinivasvasam45/Employee_Management_System',
     live: 'https://employee-management-system-pink-seven.vercel.app/',
   },
@@ -45,7 +45,7 @@ const projects = [
     title: 'Notes Management Application',
     description:
       'A modern and responsive note-taking application built with React that enables users to create, edit, and delete notes through a clean and intuitive interface. The application leverages React Hooks for efficient state management and follows a reusable component-based architecture to ensure scalability and maintainability. Designed with a focus on simplicity and usability, it delivers a seamless note management experience across desktop and mobile devices while demonstrating modern React development practices.',
-    tags: ['React'],
+    tags: ['React','tailwindcss'],
     github: 'https://github.com/Srinivasvasam45/Notes_app',
     live: 'https://notes-app-gamma-flax-77.vercel.app/',
   },
@@ -54,10 +54,19 @@ const projects = [
     title: 'Spotify Backend API – Role-Based Music Streaming Platform',
     description:
       'Designed and developed a scalable backend for a Spotify-inspired music streaming platform using Node.js, Express.js, and MongoDB. Implemented role-based authentication and authorization with two user roles: Artists and Listeners. Artists can create and manage songs and albums, while listeners can browse and access music through secure RESTful APIs. Built modular APIs, optimized database operations, and followed clean architecture principles to create a secure and maintainable backend application. Tech Stack: Node.js • Express.js • MongoDB • Mongoose • JWT • REST API • Postman',
-    tags: ['React'],
+    tags: ['Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/Srinivasvasam45/spotify',
     live: 'https://spotify-r4e1.onrender.com',
   },
+  {
+    file: 'zomato-reels.jsx',   
+    title: 'Zomato Reels — Full Stack Food Discovery Platform',
+    description:
+      "A full-stack food discovery platform inspired by Zomato, built with React, Node.js, Express.js, and MongoDB. The application allows users to explore restaurants, view menus, and discover food options through an interactive interface. It features user authentication, restaurant listings, and a dynamic search functionality. The backend is designed with RESTful APIs to handle data retrieval and management efficiently. The project demonstrates the integration of frontend and backend technologies to create a seamless user experience for food enthusiasts.",
+    tags: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
+    live: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
+  }
 ];
 
 const ProjectCard = ({ project, index }) => (

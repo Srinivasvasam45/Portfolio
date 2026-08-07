@@ -33,9 +33,11 @@ const About = () => {
 
           <div className="rounded-xl p-6 sm:p-8 border border-white/10 bg-[#12181f]/60 hover:border-white/15 transition-all">
             <p className="text-gray-300 mb-8 leading-relaxed">
-              Passionate about transforming ideas into intuitive web applications
-              using JavaScript and React. Dedicated to continuous learning, clean
-              code, and building solutions that create real-world impact.
+              I'm a Full Stack MERN Developer who enjoys turning ideas into modern, scalable, and user-friendly web applications. My journey 
+              began with HTML, CSS, and JavaScript, and grew into mastering the MERN Stack by building real-world projects using React.js, Node.js, Express.js, and MongoDB.
+              I've developed applications such as a Zomato Reels platform for food video discovery and a Spotify-inspired backend featuring role-based authentication 
+              and RESTful APIs. Through these projects, I've gained hands-on experience in frontend development, backend architecture, database design, authentication, API 
+              integration, deployment, and version control.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
