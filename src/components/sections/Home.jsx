@@ -35,12 +35,12 @@ export const Home = () => {
                 >
                   View Projects
                 </a>
-                <a
+                {/* <a
                   href="#contact"
                   className="border border-[#58a6ff]/40 text-[#58a6ff] py-3 px-6 rounded-md font-medium transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#58a6ff]/10"
                 >
                   Contact Me
-                </a>
+                </a> */}
                 <a
                   href="https://docs.google.com/document/d/1-QQP7nPhKTtR0NF8_g0t4CyIR9ew5Lj8/edit?usp=drive_link&ouid=100892000215244859329&rtpof=true&sd=true"
                   target="_blank"

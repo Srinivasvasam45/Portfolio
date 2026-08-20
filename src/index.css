@@ -106,6 +106,24 @@ html, body {
   display: inline-block;
 }
 
+/* Generated project-preview panel — used when a card has no real
+   screenshot yet. Tinted per-project via the --tint custom property
+   set inline (see ProjectPreview in Projects.jsx). */
+.preview-pattern {
+  position: relative;
+  background-color: var(--bg-elevated);
+  background-image:
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--tint) 22%, transparent), transparent 55%),
+    radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 100% 100%, 16px 16px;
+}
+.preview-pattern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, var(--bg-elevated) 100%);
+}
+
 /* ============================================================
    Animations
    ============================================================ */
