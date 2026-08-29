@@ -80,6 +80,21 @@ const MongoIcon = (props) => (
   </svg>
 );
 
+const ReduxIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="14" height="14" {...props}>
+    <rect x="4" y="4" width="16" height="16" rx="4" />
+    <path d="M8 13.5a5 5 0 0 1 8-4" strokeLinecap="round" />
+    <path d="M14.2 7l2 2.2-2 2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const SparkleIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" {...props}>
+    <path d="M12 2l1.8 5.6L19.5 9l-5.7 1.8L12 16.6l-1.8-5.8L4.5 9l5.7-1.4L12 2Z" />
+    <path d="M19 15l.9 2.6L22.5 18l-2.6.9L19 21.5l-.9-2.6L15.5 18l2.6-.4L19 15Z" opacity="0.7" />
+  </svg>
+);
+
 /* ============================================================
    Project illustrations — one small original line-art scene per
    project, keyed by `file`, so each card's image actually reflects
@@ -189,6 +204,67 @@ const FoodReelsIllustration = ({ color }) => (
   </svg>
 );
 
+const InterviewIllustration = ({ color }) => (
+  <svg viewBox="0 0 200 130" className="h-[64%] w-auto" fill="none">
+    {/* resume */}
+    <rect x="18" y="16" width="62" height="98" rx="8" stroke={color} strokeWidth="2" strokeOpacity="0.5" />
+    <circle cx="38" cy="34" r="7" stroke={color} strokeWidth="1.6" strokeOpacity="0.55" />
+    {[0, 1, 2, 3, 4].map((i) => (
+      <line
+        key={i}
+        x1="30" y1={54 + i * 11}
+        x2={i % 2 === 0 ? 70 : 60} y2={54 + i * 11}
+        stroke={color} strokeOpacity="0.4" strokeWidth="1.6" strokeLinecap="round"
+      />
+    ))}
+    {/* dashed link from resume to AI */}
+    <path d="M84 65h30" stroke={color} strokeWidth="2" strokeDasharray="4 5" strokeLinecap="round" strokeOpacity="0.5" />
+    <path d="M110 58l8 7-8 7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+    {/* AI chat bubble */}
+    <rect x="128" y="22" width="56" height="42" rx="12" stroke={color} strokeWidth="2" fill={color} fillOpacity="0.1" />
+    <path d="M144 64l-6 12 14-9Z" fill={color} fillOpacity="0.6" />
+    {[0, 1, 2].map((i) => (
+      <circle key={i} cx={144 + i * 10} cy="43" r="3" fill={color} fillOpacity="0.65" />
+    ))}
+    {/* mic / voice waveform */}
+    <g stroke={color} strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round">
+      <line x1="138" y1="96" x2="138" y2="110" />
+      <line x1="148" y1="90" x2="148" y2="116" />
+      <line x1="158" y1="98" x2="158" y2="108" />
+      <line x1="168" y1="92" x2="168" y2="114" />
+    </g>
+  </svg>
+);
+
+const ReduxTodoIllustration = ({ color }) => (
+  <svg viewBox="0 0 200 130" className="h-[64%] w-auto" fill="none">
+    <rect x="20" y="14" width="118" height="102" rx="10" stroke={color} strokeOpacity="0.5" strokeWidth="2" />
+    {[0, 1, 2, 3].map((i) => {
+      const y = 34 + i * 21;
+      const done = i < 2;
+      return (
+        <g key={i}>
+          <rect
+            x="36" y={y} width="14" height="14" rx="4"
+            stroke={color} strokeWidth="1.8"
+            fill={done ? color : 'none'} fillOpacity={done ? 0.28 : 0}
+          />
+          {done && (
+            <path d={`M39 ${y + 7.5} l3 3 l6.5 -7.5`} stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          )}
+          <line x1="60" y1={y + 7} x2={done ? 114 : 128} y2={y + 7} stroke={color} strokeOpacity={done ? 0.3 : 0.55} strokeWidth="2" strokeLinecap="round" />
+        </g>
+      );
+    })}
+    {/* redux store loop — represents the centralized store driving updates */}
+    <g transform="translate(166 65)">
+      <circle r="24" stroke={color} strokeWidth="2" strokeOpacity="0.45" />
+      <path d="M-14 -10a18 18 0 1 1 -2 22" stroke={color} strokeWidth="2" strokeLinecap="round" strokeOpacity="0.65" fill="none" />
+      <path d="M-18 8l4 8 8-4Z" fill={color} fillOpacity="0.75" />
+    </g>
+  </svg>
+);
+
 /* file → illustration. Add an entry whenever a new project needs one;
    anything without a match just falls back to no illustration (tint only). */
 const ILLUSTRATIONS = {
@@ -198,6 +274,8 @@ const ILLUSTRATIONS = {
   'notes-app.jsx': NotesIllustration,
   'spotify-api.js': AudioIllustration,
   'zomato-reels.jsx': FoodReelsIllustration,
+  'ai-interviewer.jsx': InterviewIllustration,
+  'todo-redux.jsx': ReduxTodoIllustration,
 };
 
 /* Map each tag string (as used in `projects` below) to an icon + brand-ish tint.
@@ -211,6 +289,8 @@ const TECH_META = {
   'node.js': { label: 'Node.js', icon: NodeIcon, color: '#7ee787' },
   'express.js': { label: 'Express', icon: ExpressIcon, color: '#c9d1d9' },
   mongodb: { label: 'MongoDB', icon: MongoIcon, color: '#5fd08a' },
+  'redux toolkit': { label: 'Redux Toolkit', icon: ReduxIcon, color: '#764abc' },
+  'openai api': { label: 'OpenAI API', icon: SparkleIcon, color: '#10a37f' },
 };
 
 const techMeta = (tag) =>
@@ -237,7 +317,7 @@ const hostnameOf = (url) => {
    to the generated tech-tinted preview panel.
    ============================================================ */
 const projects = [
-   {
+  {
     file: 'zomato-reels.jsx',
     title: 'Zomato Reels — Full Stack Food Discovery Platform',
     description:
@@ -246,27 +326,16 @@ const projects = [
     github: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
     live: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
     image: null,
-    featured: false,
-  },
-  {
-    file: 'todo-list.jsx',
-    title: 'Todo List Web Application',
-    description:
-      "A responsive weather application built with HTML, CSS, and JavaScript that provides real-time weather information through Weather API integration. It leverages the Fetch API and Async/Await to retrieve and display dynamic weather data, including temperature, humidity, wind speed, and weather conditions. The application incorporates input validation and error handling to ensure reliable user interactions while delivering a clean, responsive, and intuitive interface across multiple devices.",
-    tags: ['Html', 'Css', 'JavaScript'],
-    github: 'https://github.com/Srinivasvasam45/TO_DO_LIST',
-    live: 'https://to-do-list-rose-tau.vercel.app/',
-    image: null,
     featured: true,
   },
   {
-    file: 'weather-report.jsx',
-    title: 'Weather Report Web Application',
+    file: 'spotify-api.js',
+    title: 'Spotify Backend API – Role-Based Music Streaming Platform',
     description:
-      'A responsive note-taking application built with React that enables users to create, edit, and delete notes through a clean and intuitive interface. It utilizes React Hooks for efficient state management and follows a reusable component-based architecture to deliver a seamless user experience. Designed with a focus on simplicity and performance, the application ensures smooth interaction while maintaining an organized workflow. The responsive layout provides a consistent experience across desktop and mobile devices.',
-    tags: ['Html', 'Css', 'JavaScript'],
-    github: 'https://github.com/Srinivasvasam45/Weather_Report',
-    live: 'https://weather-report-xi-blush.vercel.app/',
+      'Designed and developed a scalable backend for a Spotify-inspired music streaming platform using Node.js, Express.js, and MongoDB. Implemented role-based authentication and authorization with two user roles: Artists and Listeners. Artists can create and manage songs and albums, while listeners can browse and access music through secure RESTful APIs. Built modular APIs, optimized database operations, and followed clean architecture principles to create a secure and maintainable backend application. Tech Stack: Node.js • Express.js • MongoDB • Mongoose • JWT • REST API • Postman',
+    tags: ['Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/Srinivasvasam45/spotify',
+    live: 'https://spotify-r4e1.onrender.com',
     image: null,
     featured: true,
   },
@@ -282,6 +351,50 @@ const projects = [
     featured: true,
   },
   {
+    file: 'ai-interviewer.jsx',
+    title: 'AI Interviewer — Personalized Interview Prep Platform',
+    description:
+      "An AI-powered interview preparation platform that helps candidates rehearse for real job interviews. Users create an account, log in, and start a new interview session by submitting a job description and their resume. An AI agent analyzes both inputs and generates a customized set of interview questions tailored to the role's requirements and the candidate's background, then runs an interactive mock-interview session. Built with a React frontend and a Node.js/Express backend, with MongoDB storing users, sessions, and interview history, the project ties together authentication, structured text input, and AI-driven content generation into one workflow.",
+    tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'OpenAI API'],
+    github: 'https://github.com/Srinivasvasam45/Ai_Interviewer',
+    live: 'https://github.com/Srinivasvasam45/ai-interviewer',
+    image: null,
+    featured: false,
+  },
+  {
+    file: 'todo-redux.jsx',
+    title: 'To-Do List — Redux Toolkit Edition',
+    description:
+      'A to-do list application rebuilt around Redux Toolkit to demonstrate professional, scalable state management in React. Tasks are managed through a Redux slice built with createSlice and configureStore, replacing ad-hoc component state with a single, predictable store. The app supports adding, completing, editing, and deleting tasks, with every state transition handled through dispatched actions and reducers rather than local state. Built with React and styled with Tailwind CSS, the project showcases the state-management patterns used in production-scale applications.',
+    tags: ['React', 'Redux Toolkit', 'tailwindcss'],
+    github: 'https://github.com/Srinivasvasam45/Todo_using_redux',
+    live: 'https://todo-using-redux-opal.vercel.app/',
+    image: null,
+    featured: false,
+  },
+  {
+    file: 'todo-list.jsx',
+    title: 'Todo List Web Application',
+    description:
+      "A responsive weather application built with HTML, CSS, and JavaScript that provides real-time weather information through Weather API integration. It leverages the Fetch API and Async/Await to retrieve and display dynamic weather data, including temperature, humidity, wind speed, and weather conditions. The application incorporates input validation and error handling to ensure reliable user interactions while delivering a clean, responsive, and intuitive interface across multiple devices.",
+    tags: ['Html', 'Css', 'JavaScript'],
+    github: 'https://github.com/Srinivasvasam45/TO_DO_LIST',
+    live: 'https://to-do-list-rose-tau.vercel.app/',
+    image: null,
+    featured: false,
+  },
+  {
+    file: 'weather-report.jsx',
+    title: 'Weather Report Web Application',
+    description:
+      'A responsive note-taking application built with React that enables users to create, edit, and delete notes through a clean and intuitive interface. It utilizes React Hooks for efficient state management and follows a reusable component-based architecture to deliver a seamless user experience. Designed with a focus on simplicity and performance, the application ensures smooth interaction while maintaining an organized workflow. The responsive layout provides a consistent experience across desktop and mobile devices.',
+    tags: ['Html', 'Css', 'JavaScript'],
+    github: 'https://github.com/Srinivasvasam45/Weather_Report',
+    live: 'https://weather-report-xi-blush.vercel.app/',
+    image: null,
+    featured: false,
+  },
+  {
     file: 'notes-app.jsx',
     title: 'Notes Management Application',
     description:
@@ -292,18 +405,6 @@ const projects = [
     image: null,
     featured: false,
   },
-  {
-    file: 'spotify-api.js',
-    title: 'Spotify Backend API – Role-Based Music Streaming Platform',
-    description:
-      'Designed and developed a scalable backend for a Spotify-inspired music streaming platform using Node.js, Express.js, and MongoDB. Implemented role-based authentication and authorization with two user roles: Artists and Listeners. Artists can create and manage songs and albums, while listeners can browse and access music through secure RESTful APIs. Built modular APIs, optimized database operations, and followed clean architecture principles to create a secure and maintainable backend application. Tech Stack: Node.js • Express.js • MongoDB • Mongoose • JWT • REST API • Postman',
-    tags: ['Node.js', 'Express.js', 'MongoDB'],
-    github: 'https://github.com/Srinivasvasam45/spotify',
-    live: 'https://spotify-r4e1.onrender.com',
-    image: null,
-    featured: false,
-  },
- 
 ];
 
 /* Browser-mockup preview panel: real screenshot if `image` is set,

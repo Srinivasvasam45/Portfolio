@@ -17,9 +17,9 @@ const SkillGroup = ({ title, items }) => (
 );
 
 const About = () => {
-  const frontendSkills = ["Html", "Css", "JavaScript", "React", "Tailwind CSS"];
+  const frontendSkills = ["Html", "Css", "JavaScript", "React", "Tailwind CSS","TypeScript"];
   const backendskills = ["Node.js", "Express.js", "MongoDB"];
-  const tools = ["Git", "GitHub", "VS Code", "Postman"];
+  const tools = ["Git", "GitHub", "VS Code", "Postman","Redux Toolkit"];
   const other = ["Python ", "Sql", "Power BI"];
 
   return (
