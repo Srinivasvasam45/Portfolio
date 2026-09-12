@@ -88,6 +88,38 @@ const ReduxIcon = (props) => (
   </svg>
 );
 
+const DockerIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" width="14" height="14" {...props}>
+    <rect x="4" y="10.5" width="3.6" height="3.6" rx="0.6" />
+    <rect x="9" y="10.5" width="3.6" height="3.6" rx="0.6" />
+    <rect x="9" y="5.5" width="3.6" height="3.6" rx="0.6" />
+    <rect x="14" y="10.5" width="3.6" height="3.6" rx="0.6" />
+    <path d="M2.5 14.5c0 4 3.7 5.5 8.7 5.5 6.3 0 10.3-3 11.6-8-1.1.7-2.3.9-3.5.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const CloudIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" width="14" height="14" {...props}>
+    <path d="M7 18h10.2a3.8 3.8 0 0 0 .4-7.58A6 6 0 0 0 6.1 11.1 3.8 3.8 0 0 0 7 18Z" strokeLinejoin="round" />
+  </svg>
+);
+
+const SocketIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" width="14" height="14" {...props}>
+    <circle cx="5.5" cy="12" r="2.2" />
+    <circle cx="18.5" cy="6" r="2.2" />
+    <circle cx="18.5" cy="18" r="2.2" />
+    <path d="M7.5 10.9l9-3.5M7.5 13.1l9 3.5" strokeLinecap="round" />
+  </svg>
+);
+
+const SyncIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" width="14" height="14" {...props}>
+    <path d="M4 12a8 8 0 0 1 13.7-5.66M20 12a8 8 0 0 1-13.7 5.66" strokeLinecap="round" />
+    <path d="M17.3 3.4v3.3H14M6.7 20.6v-3.3H10" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const SparkleIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" {...props}>
     <path d="M12 2l1.8 5.6L19.5 9l-5.7 1.8L12 16.6l-1.8-5.8L4.5 9l5.7-1.4L12 2Z" />
@@ -265,6 +297,28 @@ const ReduxTodoIllustration = ({ color }) => (
   </svg>
 );
 
+const TerminalIllustration = ({ color }) => (
+  <svg viewBox="0 0 200 130" className="h-[64%] w-auto" fill="none">
+    <rect x="22" y="16" width="156" height="98" rx="9" stroke={color} strokeOpacity="0.5" strokeWidth="2" />
+    <line x1="22" y1="34" x2="178" y2="34" stroke={color} strokeOpacity="0.3" strokeWidth="1.6" />
+    {[0, 1, 2].map((i) => (
+      <circle key={i} cx={37 + i * 11} cy="25" r="2.6" fill={color} fillOpacity="0.4" />
+    ))}
+    {/* two collaborators' cursors editing the same buffer, tied together
+        by a sync loop — stands in for the Yjs CRDT sync at the core of the project */}
+    <line x1="38" y1="52" x2="118" y2="52" stroke={color} strokeOpacity="0.45" strokeWidth="2" strokeLinecap="round" />
+    <line x1="38" y1="66" x2="98" y2="66" stroke={color} strokeOpacity="0.45" strokeWidth="2" strokeLinecap="round" />
+    <rect x="38" y="86" width="9" height="13" fill={color} fillOpacity="0.75" className="animate-blink" />
+    <line x1="52" y1="99" x2="76" y2="99" stroke={color} strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
+    <rect x="96" y="86" width="9" height="13" fill="#58a6ff" fillOpacity="0.6" />
+    <line x1="110" y1="99" x2="140" y2="99" stroke="#58a6ff" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" />
+    <g transform="translate(160 60)" stroke={color} strokeOpacity="0.55" strokeWidth="1.8" fill="none">
+      <path d="M-9 -3a10 10 0 0 1 17-6M9 3a10 10 0 0 1-17 6" strokeLinecap="round" />
+      <path d="M6 -11v4.5h-4.5M-6 11v-4.5h4.5" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+  </svg>
+);
+
 /* file → illustration. Add an entry whenever a new project needs one;
    anything without a match just falls back to no illustration (tint only). */
 const ILLUSTRATIONS = {
@@ -276,6 +330,7 @@ const ILLUSTRATIONS = {
   'zomato-reels.jsx': FoodReelsIllustration,
   'ai-interviewer.jsx': InterviewIllustration,
   'todo-redux.jsx': ReduxTodoIllustration,
+  'web-terminal.jsx': TerminalIllustration,
 };
 
 /* Map each tag string (as used in `projects` below) to an icon + brand-ish tint.
@@ -291,6 +346,10 @@ const TECH_META = {
   mongodb: { label: 'MongoDB', icon: MongoIcon, color: '#5fd08a' },
   'redux toolkit': { label: 'Redux Toolkit', icon: ReduxIcon, color: '#764abc' },
   'openai api': { label: 'OpenAI API', icon: SparkleIcon, color: '#10a37f' },
+  docker: { label: 'Docker', icon: DockerIcon, color: '#2496ed' },
+  aws: { label: 'AWS', icon: CloudIcon, color: '#f5a83c' },
+  'socket.io': { label: 'Socket.io', icon: SocketIcon, color: '#4fd1c5' },
+  yjs: { label: 'Yjs', icon: SyncIcon, color: '#d3a6ff' },
 };
 
 const techMeta = (tag) =>
@@ -340,6 +399,17 @@ const projects = [
     featured: true,
   },
   {
+    file: 'web-terminal.jsx',
+    title: 'Collaborative Web Terminal',
+    description:
+      'A collaborative web terminal enabling multiple users to share and interact with a live terminal session in real time. Leveraged Yjs (CRDTs) to synchronize terminal state and maintain consistency across all connected clients without conflicts, paired with Socket.io for real-time, low-latency bidirectional communication between the server and connected clients. Terminal sessions are containerized with Docker to provide isolated, secure command execution environments, and the application is deployed and hosted on AWS with load balancing for reliable, scalable public access.',
+    tags: ['Yjs', 'Socket.io', 'Node.js', 'Docker', 'AWS'],
+    github: 'https://github.com/Srinivasvasam45/Docker_Aws',
+    live: 'http://docker-aws-829273482.ap-southeast-2.elb.amazonaws.com/',
+    image: null,
+    featured: true,
+  },
+  {
     file: 'employee-management.jsx',
     title: 'Employee Management System',
     description:
@@ -348,7 +418,7 @@ const projects = [
     github: 'https://github.com/Srinivasvasam45/Employee_Management_System',
     live: 'https://employee-management-system-pink-seven.vercel.app/',
     image: null,
-    featured: true,
+    featured: false,
   },
   {
     file: 'ai-interviewer.jsx',
