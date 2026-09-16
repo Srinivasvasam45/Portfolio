@@ -382,8 +382,8 @@ const projects = [
     description:
       "A full-stack food discovery platform inspired by Zomato, built with React, Node.js, Express.js, and MongoDB. The application allows users to explore restaurants, view menus, and discover food options through an interactive interface. It features user authentication, restaurant listings, and a dynamic search functionality. The backend is designed with RESTful APIs to handle data retrieval and management efficiently. The project demonstrates the integration of frontend and backend technologies to create a seamless user experience for food enthusiasts.",
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB'],
-    github: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
-    live: 'https://github.com/Srinivasvasam45/Zomato_Reel_application',
+    github: 'https://github.com/Srinivasvasam45/VS_FOOD',
+    live: 'https://vs-food.onrender.com/',
     image: null,
     featured: true,
   },
