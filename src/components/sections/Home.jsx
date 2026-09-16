@@ -42,7 +42,7 @@ export const Home = () => {
                   Contact Me
                 </a> */}
                 <a
-                  href="https://docs.google.com/document/d/1sP-zg11IsHbtyiaEHoqkZvT0qQN99CHw/edit?usp=sharing&ouid=100892000215244859329&rtpof=true&sd=true"
+                  href="https://docs.google.com/document/d/1BoBbtEynVxDeIWgj12h-x9CP-kMLHkzQ/edit?usp=drive_link&ouid=100892000215244859329&rtpof=true&sd=true"
                   target="_blank"
                   rel="noreferrer"
                   className="border border-white/15 text-gray-200 py-3 px-6 rounded-md font-medium transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/5"
